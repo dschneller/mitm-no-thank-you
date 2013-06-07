@@ -1,13 +1,13 @@
 //
-//  CDFirstViewController.h
+//  CDUnencryptedViewController.h
 //  MITM-Demo
 //
 //  Created by Daniel Schneller on 05.06.13.
 //  Copyright (c) 2013 CenterDevice GmbH. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CDBaseViewController.h"
 
-@interface CDFirstViewController : UIViewController
+@interface CDUnencryptedViewController : CDBaseViewController
 
 @end

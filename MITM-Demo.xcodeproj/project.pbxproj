@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		419D25381760D84700F9CA7B /* pad_ref.png in Resources */ = {isa = PBXBuildFile; fileRef = 419D25371760D84700F9CA7B /* pad_ref.png */; };
 		41DEFBD8175F9271001781EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFBD7175F9271001781EA /* UIKit.framework */; };
 		41DEFBDA175F9271001781EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFBD9175F9271001781EA /* Foundation.framework */; };
 		41DEFBDC175F9271001781EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFBDB175F9271001781EA /* CoreGraphics.framework */; };
@@ -17,15 +18,23 @@
 		41DEFBEC175F9271001781EA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBEB175F9271001781EA /* Default@2x.png */; };
 		41DEFBEE175F9271001781EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBED175F9271001781EA /* Default-568h@2x.png */; };
 		41DEFBF1175F9271001781EA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBEF175F9271001781EA /* MainStoryboard.storyboard */; };
-		41DEFBF4175F9271001781EA /* CDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFBF3175F9271001781EA /* CDFirstViewController.m */; };
-		41DEFBF6175F9271001781EA /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBF5175F9271001781EA /* first.png */; };
-		41DEFBF8175F9271001781EA /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBF7175F9271001781EA /* first@2x.png */; };
-		41DEFBFB175F9271001781EA /* CDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFBFA175F9271001781EA /* CDSecondViewController.m */; };
-		41DEFBFD175F9271001781EA /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBFC175F9271001781EA /* second.png */; };
-		41DEFBFF175F9271001781EA /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFBFE175F9271001781EA /* second@2x.png */; };
+		41DEFBF4175F9271001781EA /* CDUnencryptedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFBF3175F9271001781EA /* CDUnencryptedViewController.m */; };
+		41DEFBFB175F9271001781EA /* CDStandardSSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFBFA175F9271001781EA /* CDStandardSSLViewController.m */; };
+		41DEFC10175F9A15001781EA /* pad_closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC0D175F9A15001781EA /* pad_closed.png */; };
+		41DEFC12175F9A15001781EA /* pad_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC0F175F9A15001781EA /* pad_open.png */; };
+		41DEFC14175F9AA9001781EA /* pad_fp.png in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC13175F9AA9001781EA /* pad_fp.png */; };
+		41DEFC17175F9BB8001781EA /* CDFingerprintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC16175F9BB8001781EA /* CDFingerprintViewController.m */; };
+		41DEFC1E176086A4001781EA /* CDProgressDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC1D176086A4001781EA /* CDProgressDisplayController.m */; };
+		41DEFC2117608BF9001781EA /* CDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC2017608BF9001781EA /* CDBaseViewController.m */; };
+		41DEFC251760A252001781EA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFC241760A252001781EA /* Security.framework */; };
+		41DEFC271760A373001781EA /* www.centerdevice.de.der in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC261760A373001781EA /* www.centerdevice.de.der */; };
+		41DEFC2A1760B81A001781EA /* CDSSLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */; };
+		41DEFC2D1760C059001781EA /* CDReferenceCertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */; };
+		41DEFC2F1760D28B001781EA /* star.centerdevice.de.der in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		419D25371760D84700F9CA7B /* pad_ref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_ref.png; sourceTree = "<group>"; };
 		41DEFBD4175F9271001781EA /* MITM-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MITM-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DEFBD7175F9271001781EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		41DEFBD9175F9271001781EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,14 +49,26 @@
 		41DEFBEB175F9271001781EA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		41DEFBED175F9271001781EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		41DEFBF0175F9271001781EA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		41DEFBF2175F9271001781EA /* CDFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFirstViewController.h; sourceTree = "<group>"; };
-		41DEFBF3175F9271001781EA /* CDFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDFirstViewController.m; sourceTree = "<group>"; };
-		41DEFBF5175F9271001781EA /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		41DEFBF7175F9271001781EA /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		41DEFBF9175F9271001781EA /* CDSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDSecondViewController.h; sourceTree = "<group>"; };
-		41DEFBFA175F9271001781EA /* CDSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDSecondViewController.m; sourceTree = "<group>"; };
-		41DEFBFC175F9271001781EA /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		41DEFBFE175F9271001781EA /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		41DEFBF2175F9271001781EA /* CDUnencryptedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDUnencryptedViewController.h; sourceTree = "<group>"; };
+		41DEFBF3175F9271001781EA /* CDUnencryptedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDUnencryptedViewController.m; sourceTree = "<group>"; };
+		41DEFBF9175F9271001781EA /* CDStandardSSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStandardSSLViewController.h; sourceTree = "<group>"; };
+		41DEFBFA175F9271001781EA /* CDStandardSSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDStandardSSLViewController.m; sourceTree = "<group>"; };
+		41DEFC0D175F9A15001781EA /* pad_closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_closed.png; sourceTree = "<group>"; };
+		41DEFC0F175F9A15001781EA /* pad_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_open.png; sourceTree = "<group>"; };
+		41DEFC13175F9AA9001781EA /* pad_fp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_fp.png; sourceTree = "<group>"; };
+		41DEFC15175F9BB8001781EA /* CDFingerprintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFingerprintViewController.h; sourceTree = "<group>"; };
+		41DEFC16175F9BB8001781EA /* CDFingerprintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFingerprintViewController.m; sourceTree = "<group>"; };
+		41DEFC1C176086A4001781EA /* CDProgressDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDProgressDisplayController.h; sourceTree = "<group>"; };
+		41DEFC1D176086A4001781EA /* CDProgressDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDProgressDisplayController.m; sourceTree = "<group>"; };
+		41DEFC1F17608BF9001781EA /* CDBaseViewController.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = CDBaseViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
+		41DEFC2017608BF9001781EA /* CDBaseViewController.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = CDBaseViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
+		41DEFC241760A252001781EA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		41DEFC261760A373001781EA /* www.centerdevice.de.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.centerdevice.de.der; sourceTree = "<group>"; };
+		41DEFC281760B81A001781EA /* CDSSLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = CDSSLBaseViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
+		41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = CDSSLBaseViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
+		41DEFC2B1760C059001781EA /* CDReferenceCertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDReferenceCertViewController.h; sourceTree = "<group>"; };
+		41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDReferenceCertViewController.m; sourceTree = "<group>"; };
+		41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.centerdevice.de.der; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41DEFC251760A252001781EA /* Security.framework in Frameworks */,
 				41DEFBD8175F9271001781EA /* UIKit.framework in Frameworks */,
 				41DEFBDA175F9271001781EA /* Foundation.framework in Frameworks */,
 				41DEFBDC175F9271001781EA /* CoreGraphics.framework in Frameworks */,
@@ -64,6 +86,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		414E7B7B176241BE000618D6 /* Basics */ = {
+			isa = PBXGroup;
+			children = (
+				414E7B7D176242CC000618D6 /* App Delegate */,
+				41DEFC1F17608BF9001781EA /* CDBaseViewController.h */,
+				41DEFC2017608BF9001781EA /* CDBaseViewController.m */,
+				41DEFC1C176086A4001781EA /* CDProgressDisplayController.h */,
+				41DEFC1D176086A4001781EA /* CDProgressDisplayController.m */,
+				41DEFC281760B81A001781EA /* CDSSLBaseViewController.h */,
+				41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */,
+			);
+			name = Basics;
+			sourceTree = "<group>";
+		};
+		414E7B7C1762428B000618D6 /* Unencrypted */ = {
+			isa = PBXGroup;
+			children = (
+				41DEFBF2175F9271001781EA /* CDUnencryptedViewController.h */,
+				41DEFBF3175F9271001781EA /* CDUnencryptedViewController.m */,
+			);
+			name = Unencrypted;
+			sourceTree = "<group>";
+		};
+		414E7B7D176242CC000618D6 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				41DEFBE6175F9271001781EA /* CDAppDelegate.h */,
+				41DEFBE7175F9271001781EA /* CDAppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		414E7B7E1762430F000618D6 /* Standard SSL */ = {
+			isa = PBXGroup;
+			children = (
+				41DEFBF9175F9271001781EA /* CDStandardSSLViewController.h */,
+				41DEFBFA175F9271001781EA /* CDStandardSSLViewController.m */,
+			);
+			name = "Standard SSL";
+			sourceTree = "<group>";
+		};
+		414E7B7F1762431E000618D6 /* Reference Certificate Check */ = {
+			isa = PBXGroup;
+			children = (
+				41DEFC2B1760C059001781EA /* CDReferenceCertViewController.h */,
+				41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */,
+				41DEFC261760A373001781EA /* www.centerdevice.de.der */,
+				41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */,
+			);
+			name = "Reference Certificate Check";
+			sourceTree = "<group>";
+		};
+		414E7B8017624336000618D6 /* Certificate Fingerprint Check */ = {
+			isa = PBXGroup;
+			children = (
+				41DEFC15175F9BB8001781EA /* CDFingerprintViewController.h */,
+				41DEFC16175F9BB8001781EA /* CDFingerprintViewController.m */,
+			);
+			name = "Certificate Fingerprint Check";
+			sourceTree = "<group>";
+		};
 		41DEFBCB175F9271001781EA = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +167,7 @@
 		41DEFBD6175F9271001781EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41DEFC241760A252001781EA /* Security.framework */,
 				41DEFBD7175F9271001781EA /* UIKit.framework */,
 				41DEFBD9175F9271001781EA /* Foundation.framework */,
 				41DEFBDB175F9271001781EA /* CoreGraphics.framework */,
@@ -94,17 +178,12 @@
 		41DEFBDD175F9271001781EA /* MITM-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				41DEFBE6175F9271001781EA /* CDAppDelegate.h */,
-				41DEFBE7175F9271001781EA /* CDAppDelegate.m */,
 				41DEFBEF175F9271001781EA /* MainStoryboard.storyboard */,
-				41DEFBF2175F9271001781EA /* CDFirstViewController.h */,
-				41DEFBF3175F9271001781EA /* CDFirstViewController.m */,
-				41DEFBF5175F9271001781EA /* first.png */,
-				41DEFBF7175F9271001781EA /* first@2x.png */,
-				41DEFBF9175F9271001781EA /* CDSecondViewController.h */,
-				41DEFBFA175F9271001781EA /* CDSecondViewController.m */,
-				41DEFBFC175F9271001781EA /* second.png */,
-				41DEFBFE175F9271001781EA /* second@2x.png */,
+				414E7B7B176241BE000618D6 /* Basics */,
+				414E7B7C1762428B000618D6 /* Unencrypted */,
+				414E7B7E1762430F000618D6 /* Standard SSL */,
+				414E7B7F1762431E000618D6 /* Reference Certificate Check */,
+				414E7B8017624336000618D6 /* Certificate Fingerprint Check */,
 				41DEFBDE175F9271001781EA /* Supporting Files */,
 			);
 			path = "MITM-Demo";
@@ -113,6 +192,10 @@
 		41DEFBDE175F9271001781EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41DEFC13175F9AA9001781EA /* pad_fp.png */,
+				41DEFC0D175F9A15001781EA /* pad_closed.png */,
+				419D25371760D84700F9CA7B /* pad_ref.png */,
+				41DEFC0F175F9A15001781EA /* pad_open.png */,
 				41DEFBDF175F9271001781EA /* MITM-Demo-Info.plist */,
 				41DEFBE0175F9271001781EA /* InfoPlist.strings */,
 				41DEFBE3175F9271001781EA /* main.m */,
@@ -181,10 +264,12 @@
 				41DEFBEC175F9271001781EA /* Default@2x.png in Resources */,
 				41DEFBEE175F9271001781EA /* Default-568h@2x.png in Resources */,
 				41DEFBF1175F9271001781EA /* MainStoryboard.storyboard in Resources */,
-				41DEFBF6175F9271001781EA /* first.png in Resources */,
-				41DEFBF8175F9271001781EA /* first@2x.png in Resources */,
-				41DEFBFD175F9271001781EA /* second.png in Resources */,
-				41DEFBFF175F9271001781EA /* second@2x.png in Resources */,
+				41DEFC10175F9A15001781EA /* pad_closed.png in Resources */,
+				41DEFC12175F9A15001781EA /* pad_open.png in Resources */,
+				41DEFC14175F9AA9001781EA /* pad_fp.png in Resources */,
+				41DEFC271760A373001781EA /* www.centerdevice.de.der in Resources */,
+				41DEFC2F1760D28B001781EA /* star.centerdevice.de.der in Resources */,
+				419D25381760D84700F9CA7B /* pad_ref.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +282,13 @@
 			files = (
 				41DEFBE4175F9271001781EA /* main.m in Sources */,
 				41DEFBE8175F9271001781EA /* CDAppDelegate.m in Sources */,
-				41DEFBF4175F9271001781EA /* CDFirstViewController.m in Sources */,
-				41DEFBFB175F9271001781EA /* CDSecondViewController.m in Sources */,
+				41DEFBF4175F9271001781EA /* CDUnencryptedViewController.m in Sources */,
+				41DEFBFB175F9271001781EA /* CDStandardSSLViewController.m in Sources */,
+				41DEFC17175F9BB8001781EA /* CDFingerprintViewController.m in Sources */,
+				41DEFC1E176086A4001781EA /* CDProgressDisplayController.m in Sources */,
+				41DEFC2117608BF9001781EA /* CDBaseViewController.m in Sources */,
+				41DEFC2A1760B81A001781EA /* CDSSLBaseViewController.m in Sources */,
+				41DEFC2D1760C059001781EA /* CDReferenceCertViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +411,7 @@
 				41DEFC04175F9271001781EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

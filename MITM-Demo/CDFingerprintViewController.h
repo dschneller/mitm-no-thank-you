@@ -1,13 +1,13 @@
 //
-//  CDSecondViewController.h
+//  CDFingerprintViewController.h
 //  MITM-Demo
 //
 //  Created by Daniel Schneller on 05.06.13.
 //  Copyright (c) 2013 CenterDevice GmbH. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CDSSLBaseViewController.h"
 
-@interface CDSecondViewController : UIViewController
+@interface CDFingerprintViewController : CDSSLBaseViewController
 
 @end
