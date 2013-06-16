@@ -85,7 +85,7 @@
 
 
 
-- (BOOL)matchesKnownCertificates:(SecTrustRef)presentedCertificate {
+- (BOOL)matchesKnownCertificates:(SecTrustRef)presentedTrustInformation {
     // prepare return value
     BOOL certificateVerified = NO; // defensive default
 
@@ -95,11 +95,11 @@
 
         // Set up the security framework to verify the presented certificate against our custom
         // chain of trust instead of against the system keychain
-        SecTrustSetAnchorCertificates(presentedCertificate, _chainsOfTrust[i]);
+        SecTrustSetAnchorCertificates(presentedTrustInformation, _chainsOfTrust[i]);
 
         // Now perform the actual check, based on the set up a moment ago
         SecTrustResultType evaluationResult;
-        OSStatus status = SecTrustEvaluate(presentedCertificate, &evaluationResult);
+        OSStatus status = SecTrustEvaluate(presentedTrustInformation, &evaluationResult);
         
         // status now contains the general success/failure result of the evaluation call.
         // evaluationResult has the concrete outcome of the certificate check.
