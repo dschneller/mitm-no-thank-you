@@ -7,15 +7,18 @@
 //
 
 #import "CDProgressDisplayController.h"
+#import "CDLogHistoryTableViewCell.h"
 
-@interface CDProgressDisplayController ()
+@interface CDProgressDisplayController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableString* log;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
-@property (strong, nonatomic) IBOutlet UITextView *logText;
 @property (assign, nonatomic) NSUInteger logLineNumber;
+
+@property (strong, nonatomic) NSMutableArray* logLines;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -49,22 +52,43 @@
 
 - (void) reset
 {
-    self.logLineNumber = 1;
+    self.logLines = [NSMutableArray array];
     self.working = NO;
-    self.log = [@"" mutableCopy];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.logText setText:self.log];
         self.status = @"Ready";
     });
 }
 
 - (void) appendLog:(NSString*)entry
 {
+    [self.logLines addObject:entry];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.log appendFormat:@"\n%02d: %@", self.logLineNumber++, entry];
-        [self.logText setText:self.log];
+        [self.tableView reloadData];
     });
 }
 
+
+#pragma mark - Table View
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.logLines count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* const cellId = @"logHistoryCell";
+    CDLogHistoryTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.lineNumberLabel.text = [NSString stringWithFormat:@"%02d", indexPath.row+1];
+    cell.statusEntryLabel.text = self.logLines[indexPath.row];
+//    cell.lineNumberLabel.textColor = (indexPath.row % 2 == 0) ? [UIColor lightGrayColor] : [UIColor whiteColor];
+    
+    return cell;
+}
 
 @end
