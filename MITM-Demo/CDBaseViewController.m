@@ -1,6 +1,6 @@
 //
 //  CDBaseViewController.m
-//  
+//
 //
 //  Created by Daniel Schneller on 06.06.13.
 //
@@ -49,27 +49,31 @@
 
 - (NSURLConnection*) getConnectionFor:(NSString*)url
 {
-    // Simulator apparently sometimes ignored cache policy defined below.
-    // To work around that the URL gets modified every time by appending
-    // a counter. Still does not help every time, though. :(
-    NSMutableString* newUrl = [NSMutableString stringWithString:url];
-    static NSUInteger counter = 0;
-    [newUrl appendFormat:@"/%d", counter++];
-    
+    // Make sure we don't get any cached response back.
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:newUrl]
+    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
                                          cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                     timeoutInterval:30.0f];
+                                     timeoutInterval:10.0f];
+    // Create connection to URL.
+    // NOTICE: Even though this is a new connection instance, the underlying network
+    //         implementation can re-use an SSL session that has already been negotiated.
+    //         In that case, the delegate will not see calls to the security-related
+    //         callback methods. This cannot be overridden in iOS6. Just wait about 10
+    //         seconds before trying again. By that time the session should have been
+    //         torn down.
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:req delegate:self];
-
-    self.progressController.status = newUrl;
-    [self.progressController appendLog:newUrl];
+    
+    self.progressController.status = url;
+    [self.progressController appendLog:url];
     [self.progressController appendLog:@"---------------------"];
     
     return connection;
 }
 
 #pragma mark - NSURLConnectionDelegate protocol
+
+// default implementations for connection delegate callback methods. they just log their
+// call to the progress controller and (if needed, set the "working" property.
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {

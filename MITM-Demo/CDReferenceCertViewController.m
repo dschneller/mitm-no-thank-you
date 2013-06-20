@@ -10,11 +10,13 @@
 
 @interface CDReferenceCertViewController ()
 
+/*! List of known reference certificates. Cached after first load. */
 @property (nonatomic, readonly) NSArray* referenceCerts;
 
 @end
 
 @implementation CDReferenceCertViewController
+
 @synthesize referenceCerts = _referenceCerts;
 
 - (NSArray *)referenceCerts
@@ -22,14 +24,16 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Load reference certificate from our main bundle
-        NSMutableArray* certDatas = [NSMutableArray array];
         NSArray* certificateFiles = @[@"star.centerdevice.de", @"www.centerdevice.de"];
+
+        NSMutableArray* certDatas = [NSMutableArray array];
         for (NSUInteger i = 0; i<certificateFiles.count; i++)
         {
             NSString *certificateFileLocation = [[NSBundle mainBundle] pathForResource:certificateFiles[i] ofType:@"der"];
             NSData *certificateData = [[NSData alloc] initWithContentsOfFile:certificateFileLocation];
             [certDatas addObject:certificateData];
         }
+        
         _referenceCerts = [NSArray arrayWithArray:certDatas];
     });
     return _referenceCerts;
@@ -37,12 +41,14 @@
 
 #pragma mark - SSL related NSURLConnectionDelegate methods
 
-
 -(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
+    [super connection:connection willSendRequestForAuthenticationChallenge:challenge];
     if (!self.progressController.working) { return; }
-    [self.progressController appendLog:@"Authentication challenge received"];
-    
+    if (![super supportedProtectionSpace:challenge]) { return; }
+
+    [self.progressController appendLog:@"Performing reference cert comparison."];
+
     SecTrustRef receivedServerCertificate = challenge.protectionSpace.serverTrust;
     if ([self matchesKnownCertificates:receivedServerCertificate]) {
         // certificate matched a known reference cert. Create a credential and proceed.

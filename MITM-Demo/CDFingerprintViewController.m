@@ -34,8 +34,11 @@ static NSString* const kFPStar = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 
 
 -(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
+    [super connection:connection willSendRequestForAuthenticationChallenge:challenge];
     if (!self.progressController.working) { return; }
-    [self.progressController appendLog:@"Authentication challenge received"];
+    if (![super supportedProtectionSpace:challenge]) { return; }
+    
+    [self.progressController appendLog:@"Performing fingerprint comparison."];
     
     SecTrustRef serverPresentedTrustInfo = challenge.protectionSpace.serverTrust;
     [self matchesKnownFingerprint:serverPresentedTrustInfo

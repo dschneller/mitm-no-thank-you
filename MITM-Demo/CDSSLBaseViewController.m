@@ -13,19 +13,32 @@
 
 @implementation CDSSLBaseViewController
 
+//
 // Default SSL URL to connect to.
+//
 -(NSString *)URL
 {
     return @"https://api.centerdevice.de";
 }
 
-#pragma mark - SSL related NSURLConnectionDelegate methods
-
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+-(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge __attribute((objc_requires_super))
 {
-    [self.progressController appendLog:@"Checking protection space is server-trust"];
-    return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+    if (!self.progressController.working) { return; }
+    
+    [self.progressController appendLog:@"Received authentication challenge."];
 }
 
+
+- (BOOL) supportedProtectionSpace:(NSURLAuthenticationChallenge*)challenge
+{
+    if (![challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+    {
+        [self.progressController appendLog:[NSString stringWithFormat:@"Protection Space %@ not supported. Aborting.",
+                                            challenge.protectionSpace]];
+        [challenge.sender cancelAuthenticationChallenge:challenge];
+        return NO;
+    }
+    return YES;
+}
 
 @end

@@ -8,20 +8,20 @@
 
 #import "CDStandardSSLViewController.h"
 
-@interface CDStandardSSLViewController () <NSURLConnectionDataDelegate>
+@interface CDStandardSSLViewController () <NSURLConnectionDelegate>
 @end
 
 @implementation CDStandardSSLViewController
 
 #pragma mark - SSL related NSURLConnectionDelegate methods
 
-// This need not be implemented - then the the system default behaviour takes place.
-// Implemented here to add some logging and for clarity
--(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+-(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
+    [super connection:connection willSendRequestForAuthenticationChallenge:challenge];
     if (!self.progressController.working) { return; }
-    [self.progressController appendLog:@"Authentication challenge received"];
+    if (![super supportedProtectionSpace:challenge]) { return; }
     
+    [self.progressController appendLog:@"Performing default authentication handling."];
     [challenge.sender performDefaultHandlingForAuthenticationChallenge:challenge];
 }
 

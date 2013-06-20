@@ -373,6 +373,7 @@
 		41DEFC03175F9271001781EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MITM-Demo/MITM-Demo-Prefix.pch";
 				INFOPLIST_FILE = "MITM-Demo/MITM-Demo-Info.plist";

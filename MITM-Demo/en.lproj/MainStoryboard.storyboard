@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4G-kT-GDS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3552" y="134"/>
+            <point key="canvasLocation" x="2077" y="206"/>
         </scene>
         <!--StandardSSL View Controller - Standard SSL-->
         <scene sceneID="13">
@@ -328,6 +328,40 @@
         <image name="pad_open.png" width="26" height="37"/>
         <image name="pad_ref.png" width="26" height="37"/>
     </resources>
+    <classes>
+        <class className="CDBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDBaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="connect:"/>
+            </relationships>
+        </class>
+        <class className="CDFingerprintViewController" superclassName="CDSSLBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDFingerprintViewController.h"/>
+        </class>
+        <class className="CDProgressDisplayController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDProgressDisplayController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="logText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CDReferenceCertViewController" superclassName="CDSSLBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDReferenceCertViewController.h"/>
+        </class>
+        <class className="CDSSLBaseViewController" superclassName="CDBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDSSLBaseViewController.h"/>
+        </class>
+        <class className="CDStandardSSLViewController" superclassName="CDSSLBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDStandardSSLViewController.h"/>
+        </class>
+        <class className="CDUnencryptedViewController" superclassName="CDBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDUnencryptedViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

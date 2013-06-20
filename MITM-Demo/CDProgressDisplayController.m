@@ -30,40 +30,39 @@
 {
     if (_working == working) { return; }
     _working = working;
-    if (!working) {
-        [self.activity stopAnimating];
-    } else {
-        [self.activity startAnimating];
-    }
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!working) {
+            [self.activity stopAnimating];
+        } else {
+            [self.activity startAnimating];
+        }
+    });
 }
 
 -(void)setStatus:(NSString *)status
 {
     _status = status;
-    self.statusLabel.text = status;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.statusLabel.text = status;
+    });
 }
 
 - (void) reset
 {
-    self.log = [@"" mutableCopy];
-    [self.logText setText:self.log];
-    self.status = @"Ready";
     self.logLineNumber = 1;
     self.working = NO;
+    self.log = [@"" mutableCopy];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.logText setText:self.log];
+        self.status = @"Ready";
+    });
 }
 
-/*!
- Appends a line to the log view in this controller's view.
- This method can be called from any queue, it will make
- sure to update any UI components on the main queue.
- 
-*/
 - (void) appendLog:(NSString*)entry
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-                   [self.log appendFormat:@"\n%02d: %@", self.logLineNumber++, entry];
-                   [self.logText setText:self.log];
+        [self.log appendFormat:@"\n%02d: %@", self.logLineNumber++, entry];
+        [self.logText setText:self.log];
     });
 }
 
