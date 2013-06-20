@@ -53,10 +53,18 @@
     self.working = NO;
 }
 
+/*!
+ Appends a line to the log view in this controller's view.
+ This method can be called from any queue, it will make
+ sure to update any UI components on the main queue.
+ 
+*/
 - (void) appendLog:(NSString*)entry
-{   
-    [self.log appendFormat:@"\n%02d: %@", self.logLineNumber++, entry];
-    [self.logText setText:self.log];
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+                   [self.log appendFormat:@"\n%02d: %@", self.logLineNumber++, entry];
+                   [self.logText setText:self.log];
+    });
 }
 
 
