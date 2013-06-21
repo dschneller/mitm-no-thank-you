@@ -21,7 +21,7 @@
     if (!self.progressController.working) { return; }
     if (![super supportedProtectionSpace:challenge]) { return; }
     
-    [self.progressController appendLog:@"Performing default authentication handling."];
+    [self.progressController appendLog:@"Default auth handling"];
     [challenge.sender performDefaultHandlingForAuthenticationChallenge:challenge];
 }
 

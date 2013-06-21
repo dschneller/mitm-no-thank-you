@@ -47,19 +47,16 @@
     if (!self.progressController.working) { return; }
     if (![super supportedProtectionSpace:challenge]) { return; }
 
-    [self.progressController appendLog:@"Performing reference cert comparison."];
+    [self.progressController appendLog:@"Comparing certs."];
 
     SecTrustRef receivedServerCertificate = challenge.protectionSpace.serverTrust;
     if ([self matchesKnownCertificates:receivedServerCertificate]) {
         // certificate matched a known reference cert. Create a credential and proceed.
-        [self.progressController appendLog:@"Certificate validated. Proceeding."];
-        
         NSURLCredential* cred = [NSURLCredential credentialForTrust:receivedServerCertificate];
         [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
     } else {
         // presented certificate did not match one on file. This means we have no conclusive
         // idea about the identity of the server and will therefore abort the connection here.
-        [self.progressController appendLog:@"Validation Failed! Canceling connection!"];
         [challenge.sender cancelAuthenticationChallenge:challenge];
     }
     
@@ -70,7 +67,6 @@
 - (BOOL)matchesKnownCertificates:(SecTrustRef)presentedTrustInformation {
     // prepare return value
     BOOL certificateVerified = NO; // defensive default
-    
     
     // Perform default trust evaluation first, to make sure the format of the presented
     // data is correct and there are no other trust issues
@@ -98,21 +94,21 @@
             {
                 NSData* referenceCert = self.referenceCerts[i];
                 
-                [self.progressController appendLog:[NSString stringWithFormat:@"Check against ref. cert #%d", i]];
-                
                 CFIndex presentedCertsCount = SecTrustGetCertificateCount(presentedTrustInformation);
                 for (CFIndex j = 0; j<presentedCertsCount && !certificateVerified; j++)
                 {
-                    SecCertificateRef currentCert = SecTrustGetCertificateAtIndex(presentedTrustInformation, i);
+                    SecCertificateRef currentCert = SecTrustGetCertificateAtIndex(presentedTrustInformation, j);
                     CFDataRef certData = SecCertificateCopyData(currentCert);
                     certificateVerified = [referenceCert isEqualToData:CFBridgingRelease(certData)];
                 }
+                
+                [self.progressController appendLog:[NSString stringWithFormat:@"Ref cert #%d: %@", i, certificateVerified ? @"match" : @"no match"] success:certificateVerified];
             }
         }
-        [self.progressController appendLog:[NSString stringWithFormat:@"  Verified: %@",
-                                            certificateVerified ? @"YES" : @"NO"]];
+        [self.progressController appendLog:(certificateVerified ? @"Found matching reference" : @"No matching reference")
+                                   success:certificateVerified];
     } else {
-        [self.progressController appendLog:@"Problem occurred executing SecTrustEvaluate. Rejecting connection."];
+        [self.progressController appendLog:@"SecTrustEvaluate failed." success:NO];
     }
     
     

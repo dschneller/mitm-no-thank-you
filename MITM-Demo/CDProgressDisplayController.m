@@ -15,10 +15,8 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
-@property (assign, nonatomic) NSUInteger logLineNumber;
-
-@property (strong, nonatomic) NSMutableArray* logLines;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray* logLines;
 
 @end
 
@@ -59,14 +57,24 @@
     });
 }
 
+- (void) appendLog:(NSString*)entry success:(BOOL)success
+{
+    NSString* format = success ? @"✅ %@" : @"❌ %@";
+    [self appendLog:entry format:format];
+}
+
 - (void) appendLog:(NSString*)entry
 {
-    [self.logLines addObject:entry];
+    [self appendLog:entry format:@"%@"];
+}
+
+- (void) appendLog:(NSString *)entry format:(NSString*)format
+{
+    [self.logLines addObject:[NSString stringWithFormat:format, entry]];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
 }
-
 
 #pragma mark - Table View
 
@@ -82,11 +90,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* const cellId = @"logHistoryCell";
+    static NSString* cellId = @"logHistoryCell";
     CDLogHistoryTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.lineNumberLabel.text = [NSString stringWithFormat:@"%02d", indexPath.row+1];
     cell.statusEntryLabel.text = self.logLines[indexPath.row];
-//    cell.lineNumberLabel.textColor = (indexPath.row % 2 == 0) ? [UIColor lightGrayColor] : [UIColor whiteColor];
     
     return cell;
 }

@@ -10,7 +10,7 @@
 
 @interface CDLogHistoryTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *lineNumberLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lineNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *statusEntryLabel;
 
 @end

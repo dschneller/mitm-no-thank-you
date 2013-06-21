@@ -29,6 +29,19 @@
 
 /*!
  Appends a line to the log view in this controller's view. It will automatically be
+ assigned the next free line number. Depending on the success flag, the entry will
+ be prepended with a suitable icon.
+ 
+ This method can be called from any queue, it will make
+ sure to update any UI components on the main queue.
+ 
+ \param entry the new log entry
+ \param success YES when the entry represents a success, NO for problems
+ */
+- (void) appendLog:(NSString*)entry success:(BOOL)success;
+
+/*!
+ Appends a line to the log view in this controller's view. It will automatically be
  assigned the next free line number.
  
  This method can be called from any queue, it will make

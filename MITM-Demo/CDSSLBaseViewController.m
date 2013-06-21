@@ -8,7 +8,7 @@
 
 #import "CDSSLBaseViewController.h"
 
-@interface CDSSLBaseViewController () <NSURLConnectionDataDelegate>
+@interface CDSSLBaseViewController () <NSURLConnectionDelegate>
 @end
 
 @implementation CDSSLBaseViewController
@@ -25,7 +25,7 @@
 {
     if (!self.progressController.working) { return; }
     
-    [self.progressController appendLog:@"Received authentication challenge."];
+    [self.progressController appendLog:@"Received auth challenge."];
 }
 
 
@@ -33,7 +33,7 @@
 {
     if (![challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
     {
-        [self.progressController appendLog:[NSString stringWithFormat:@"Protection Space %@ not supported. Aborting.",
+        [self.progressController appendLog:[NSString stringWithFormat:@"%@ not supported. Aborting.",
                                             challenge.protectionSpace]];
         [challenge.sender cancelAuthenticationChallenge:challenge];
         return NO;

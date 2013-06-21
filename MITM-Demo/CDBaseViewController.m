@@ -54,7 +54,6 @@
     NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
                                          cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                      timeoutInterval:10.0f];
-    // Create connection to URL.
     // NOTICE: Even though this is a new connection instance, the underlying network
     //         implementation can re-use an SSL session that has already been negotiated.
     //         In that case, the delegate will not see calls to the security-related
@@ -64,8 +63,7 @@
     NSURLConnection* connection = [NSURLConnection connectionWithRequest:req delegate:self];
     
     self.progressController.status = url;
-    [self.progressController appendLog:url];
-    [self.progressController appendLog:@"---------------------"];
+    [self.progressController appendLog:[NSString stringWithFormat:@"→ %@", url]];
     
     return connection;
 }
@@ -94,7 +92,7 @@
 {
     if (!self.progressController.working) { return; }
     self.progressController.status = @"Finished loading";
-    [self.progressController appendLog:@"Finished loading"];
+    [self.progressController appendLog:@"Finished loading" success:YES];
     self.progressController.working = NO;
 }
 
@@ -102,7 +100,14 @@
 {
     if (!self.progressController.working) { return; }
     self.progressController.status = @"ERROR !";
-    [self.progressController appendLog:error.description];
+    NSLog(@"%@", error.description);
+    if ([error.domain isEqualToString:NSURLErrorDomain] && error.code == -1009)
+    {
+        [self.progressController appendLog:@"No Network Connection." success:NO];
+    } else {
+        [self.progressController appendLog:error.localizedDescription success:NO];
+    }
+    
     self.progressController.working = NO;
 }
 

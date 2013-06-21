@@ -47,14 +47,11 @@ static NSString* const kFPStar = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 
                            if (matched)
                            {
                                // certificate matched a known reference cert. Create a credential and proceed.
-                               [self.progressController appendLog:@"Certificate validated. Proceeding."];
-                               
                                NSURLCredential* cred = [NSURLCredential credentialForTrust:serverPresentedTrustInfo];
                                [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
                            } else {
                                // presented certificate did not match one on file. This means we have no conclusive
                                // idea about the identity of the server and will therefore abort the connection here.
-                               [self.progressController appendLog:@"Certificate validation failed! Canceling connection!"];
                                [challenge.sender cancelAuthenticationChallenge:challenge];
                            }
                        }];
@@ -94,8 +91,6 @@ static NSString* const kFPStar = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 
                        // prepare return value
                        BOOL fingerprintVerified = NO; // defensive default
                        
-                       [self.progressController appendLog:@"Step 1: Validate chain of trust..."];
-                       
                        SecTrustResultType evaluationResult;
                        NSString* fingerprint = nil;
                        
@@ -106,6 +101,9 @@ static NSString* const kFPStar = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 
                        {
                            BOOL chainOfTurstVerified = (evaluationResult == kSecTrustResultUnspecified
                                                         || evaluationResult == kSecTrustResultProceed);
+                           [self.progressController appendLog:[NSString stringWithFormat:@"Step 1: Chain of trust %@",
+                                                               chainOfTurstVerified ? @"OK" : @"broken"]
+                                                      success:chainOfTurstVerified];
                            if (chainOfTurstVerified)
                            {
                                [self.progressController appendLog:@"Step 2: Check fingerprints..."];
@@ -146,16 +144,17 @@ static NSString* const kFPStar = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 
                                                                      options:NSCaseInsensitiveSearch] == NSOrderedSame);
                                    }
                                    
-                                   // this part is just for logging. It is not required for the actual checks.
-                                   // for the logging, we get some printable info from the current certificate.
+                                   // just for for the logging, we get some printable info from the current certificate.
                                    NSString* summary = CFBridgingRelease(SecCertificateCopySubjectSummary(certRef));
                                    if (matchFoundYet)
                                    {
-                                       [self.progressController appendLog:[NSString stringWithFormat:@"Matched: %@ [%@]", summary, fingerprint]];
+                                       [self.progressController appendLog:[NSString stringWithFormat:@"Matched: %@", summary] success:YES];
+                                       [self.progressController appendLog:fingerprint success:YES];
                                    }
                                    else
                                    {
-                                       [self.progressController appendLog:[NSString stringWithFormat:@"Failed : %@ [%@]", summary, fingerprint]];
+                                       [self.progressController appendLog:[NSString stringWithFormat:@"Failed: %@", summary] success:NO];
+                                       [self.progressController appendLog:fingerprint success:NO];
                                    }
                                }
                                fingerprintVerified = matchFoundYet;
@@ -164,7 +163,7 @@ static NSString* const kFPStar = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 
                            [self.progressController appendLog:@"Problem occurred executing SecTrustEvaluate. Rejecting connection."];
                        }
                        
-                       [self.progressController appendLog:[NSString stringWithFormat:@"Verified: %@", fingerprintVerified ? @"YES" : @"NO"]];
+                       [self.progressController appendLog:[NSString stringWithFormat:@"Fingerprint %@", fingerprintVerified ? @"accepted" : @"unknown"] success:fingerprintVerified];
                        
                        // finally execute the completion block on the queue the caller requested,
                        // passing in the outcome of the fingerprint verification
