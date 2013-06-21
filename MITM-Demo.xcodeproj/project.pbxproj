@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4130AB641773C214005FA8BA /* CDLogHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4130AB631773C214005FA8BA /* CDLogHistoryTableViewController.m */; };
 		4130AB671773C244005FA8BA /* CDLogHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4130AB661773C244005FA8BA /* CDLogHistoryTableViewCell.m */; };
 		419D25381760D84700F9CA7B /* pad_ref.png in Resources */ = {isa = PBXBuildFile; fileRef = 419D25371760D84700F9CA7B /* pad_ref.png */; };
 		41DEFBD8175F9271001781EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFBD7175F9271001781EA /* UIKit.framework */; };
@@ -36,8 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4130AB621773C214005FA8BA /* CDLogHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLogHistoryTableViewController.h; sourceTree = "<group>"; };
-		4130AB631773C214005FA8BA /* CDLogHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLogHistoryTableViewController.m; sourceTree = "<group>"; };
 		4130AB651773C244005FA8BA /* CDLogHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLogHistoryTableViewCell.h; sourceTree = "<group>"; };
 		4130AB661773C244005FA8BA /* CDLogHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLogHistoryTableViewCell.m; sourceTree = "<group>"; };
 		419D25371760D84700F9CA7B /* pad_ref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_ref.png; sourceTree = "<group>"; };
@@ -102,8 +99,6 @@
 				41DEFC1D176086A4001781EA /* CDProgressDisplayController.m */,
 				41DEFC281760B81A001781EA /* CDSSLBaseViewController.h */,
 				41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */,
-				4130AB621773C214005FA8BA /* CDLogHistoryTableViewController.h */,
-				4130AB631773C214005FA8BA /* CDLogHistoryTableViewController.m */,
 				4130AB651773C244005FA8BA /* CDLogHistoryTableViewCell.h */,
 				4130AB661773C244005FA8BA /* CDLogHistoryTableViewCell.m */,
 			);
@@ -297,7 +292,6 @@
 				41DEFBFB175F9271001781EA /* CDStandardSSLViewController.m in Sources */,
 				41DEFC17175F9BB8001781EA /* CDFingerprintViewController.m in Sources */,
 				41DEFC1E176086A4001781EA /* CDProgressDisplayController.m in Sources */,
-				4130AB641773C214005FA8BA /* CDLogHistoryTableViewController.m in Sources */,
 				41DEFC2117608BF9001781EA /* CDBaseViewController.m in Sources */,
 				41DEFC2A1760B81A001781EA /* CDSSLBaseViewController.m in Sources */,
 				41DEFC2D1760C059001781EA /* CDReferenceCertViewController.m in Sources */,
