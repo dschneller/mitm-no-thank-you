@@ -10,6 +10,8 @@
 
 @interface CDSSLBaseViewController : CDBaseViewController
 
+@property (nonatomic, readonly) BOOL gotReusedTLSSession;
+
 /*!
  
  Checks the protection space in the passed authentication challenge and verifies

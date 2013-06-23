@@ -18,7 +18,7 @@
  progress to the UI. The URL property getter should be overriden
  by concrete subclasses and provide the address to connect to.
  */
-@interface CDBaseViewController : UIViewController
+@interface CDBaseViewController : UIViewController <NSURLConnectionDataDelegate>
 
 /*!
  Provides an instance of CDProgressDisplayController that can 
@@ -31,5 +31,8 @@
  must be overriden by subclasses.
  */
 @property (nonatomic, readonly) NSString* URL;
+
+- (IBAction)connect:(id)sender;
+
 
 @end
