@@ -7,17 +7,19 @@
 //
 
 #import "CDProgressDisplayController.h"
+#import "CDLogHistoryTableViewCell.h"
 
-@interface CDProgressDisplayController ()
+@interface CDProgressDisplayController () <UITableViewDataSource,
+UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableString* log;
-
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
-@property (strong, nonatomic) IBOutlet UITextView *logText;
-@property (assign, nonatomic) NSUInteger logLineNumber;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray* logLines;
 
 @end
+
 
 @implementation CDProgressDisplayController
 
@@ -30,34 +32,86 @@
 {
     if (_working == working) { return; }
     _working = working;
-    if (!working) {
-        [self.activity stopAnimating];
-    } else {
-        [self.activity startAnimating];
-    }
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!working) {
+            [self.activity stopAnimating];
+        } else {
+            [self.activity startAnimating];
+        }
+    });
 }
 
 -(void)setStatus:(NSString *)status
 {
     _status = status;
-    self.statusLabel.text = status;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.statusLabel.text = status;
+    });
 }
 
 - (void) reset
 {
-    self.log = [@"" mutableCopy];
-    [self.logText setText:self.log];
-    self.status = @"Ready";
-    self.logLineNumber = 1;
+    self.logLines = [NSMutableArray array];
     self.working = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.status = @"Ready";
+    });
+}
+
+- (void) appendLog:(NSString*)entry success:(BOOL)success
+{
+    NSString* format = success ? @"✅ %@" : @"❌ %@";
+    [self appendLog:entry format:format];
 }
 
 - (void) appendLog:(NSString*)entry
-{   
-    [self.log appendFormat:@"\n%02d: %@", self.logLineNumber++, entry];
-    [self.logText setText:self.log];
+{
+    [self appendLog:entry format:@"%@"];
 }
 
+- (void) appendLog:(NSString *)entry format:(NSString*)format
+{
+    [self.logLines addObject:[NSString
+                              stringWithFormat:format, entry]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
+
+#pragma mark - Table View
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.logLines count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString* cellId = @"logHistoryCell";
+    CDLogHistoryTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.lineNumberLabel.text = [NSString stringWithFormat:@"%02d", indexPath.row+1];
+    cell.statusEntryLabel.text = self.logLines[indexPath.row];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* logline = self.logLines[indexPath.row];
+    NSString* title = [NSString stringWithFormat:@"Log entry %d", indexPath.row +1];
+    [[[UIAlertView alloc]
+      initWithTitle:title
+      message:logline
+      delegate:nil
+      cancelButtonTitle:@"Close"
+      otherButtonTitles:nil]
+     show];
+}
 
 @end

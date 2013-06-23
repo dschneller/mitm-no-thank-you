@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4130AB671773C244005FA8BA /* CDLogHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4130AB661773C244005FA8BA /* CDLogHistoryTableViewCell.m */; };
 		419D25381760D84700F9CA7B /* pad_ref.png in Resources */ = {isa = PBXBuildFile; fileRef = 419D25371760D84700F9CA7B /* pad_ref.png */; };
 		41DEFBD8175F9271001781EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFBD7175F9271001781EA /* UIKit.framework */; };
 		41DEFBDA175F9271001781EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFBD9175F9271001781EA /* Foundation.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4130AB651773C244005FA8BA /* CDLogHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDLogHistoryTableViewCell.h; sourceTree = "<group>"; };
+		4130AB661773C244005FA8BA /* CDLogHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDLogHistoryTableViewCell.m; sourceTree = "<group>"; };
 		419D25371760D84700F9CA7B /* pad_ref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_ref.png; sourceTree = "<group>"; };
 		41DEFBD4175F9271001781EA /* MITM-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MITM-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DEFBD7175F9271001781EA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -96,6 +99,8 @@
 				41DEFC1D176086A4001781EA /* CDProgressDisplayController.m */,
 				41DEFC281760B81A001781EA /* CDSSLBaseViewController.h */,
 				41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */,
+				4130AB651773C244005FA8BA /* CDLogHistoryTableViewCell.h */,
+				4130AB661773C244005FA8BA /* CDLogHistoryTableViewCell.m */,
 			);
 			name = Basics;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4130AB671773C244005FA8BA /* CDLogHistoryTableViewCell.m in Sources */,
 				41DEFBE4175F9271001781EA /* main.m in Sources */,
 				41DEFBE8175F9271001781EA /* CDAppDelegate.m in Sources */,
 				41DEFBF4175F9271001781EA /* CDUnencryptedViewController.m in Sources */,
@@ -373,9 +379,11 @@
 		41DEFC03175F9271001781EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MITM-Demo/MITM-Demo-Prefix.pch";
 				INFOPLIST_FILE = "MITM-Demo/MITM-Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -387,6 +395,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MITM-Demo/MITM-Demo-Prefix.pch";
 				INFOPLIST_FILE = "MITM-Demo/MITM-Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
