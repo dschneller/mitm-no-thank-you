@@ -9,16 +9,17 @@
 #import "CDProgressDisplayController.h"
 #import "CDLogHistoryTableViewCell.h"
 
-@interface CDProgressDisplayController () <UITableViewDataSource, UITableViewDelegate>
+@interface CDProgressDisplayController () <UITableViewDataSource,
+UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableString* log;
-
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray* logLines;
 
 @end
+
 
 @implementation CDProgressDisplayController
 
@@ -70,7 +71,8 @@
 
 - (void) appendLog:(NSString *)entry format:(NSString*)format
 {
-    [self.logLines addObject:[NSString stringWithFormat:format, entry]];
+    [self.logLines addObject:[NSString
+                              stringWithFormat:format, entry]];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
@@ -88,7 +90,8 @@
     return [self.logLines count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString* cellId = @"logHistoryCell";
     CDLogHistoryTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
@@ -96,6 +99,19 @@
     cell.statusEntryLabel.text = self.logLines[indexPath.row];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* logline = self.logLines[indexPath.row];
+    NSString* title = [NSString stringWithFormat:@"Log entry %d", indexPath.row +1];
+    [[[UIAlertView alloc]
+      initWithTitle:title
+      message:logline
+      delegate:nil
+      cancelButtonTitle:@"Close"
+      otherButtonTitles:nil]
+     show];
 }
 
 @end
