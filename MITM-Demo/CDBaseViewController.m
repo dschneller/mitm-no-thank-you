@@ -14,6 +14,7 @@
 
 @end
 
+
 @implementation CDBaseViewController
 
 #pragma mark - Actions
@@ -31,7 +32,8 @@
 
 #pragma mark - View and Controller Lifecycle
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:@"embedProgress"]) {
@@ -51,29 +53,41 @@
 {
     // Make sure we don't get any cached response back.
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
-                                         cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                     timeoutInterval:10.0f];
-    // NOTICE: Even though this is a new connection instance, the underlying network
-    //         implementation can re-use an SSL session that has already been negotiated.
-    //         In that case, the delegate will not see calls to the security-related
-    //         callback methods. This cannot be overridden in iOS6. Just wait about 10
-    //         seconds before trying again. By that time the session should have been
-    //         torn down.
-    NSURLConnection* connection = [NSURLConnection connectionWithRequest:req delegate:self];
+    NSMutableURLRequest* req = [NSMutableURLRequest
+                         requestWithURL:[NSURL URLWithString:url]
+                         cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                         timeoutInterval:10.0f];
+    /*
+     NOTICE
+     -------------------
+     Even though this is a new connection instance, the underlying
+     network implementation can re-use an SSL session that has
+     already been negotiated.
+     In that case, the delegate will not see calls to the
+     security-related methods. This cannot be overridden in iOS6.
+     Just wait about 10 seconds before trying again. By that time
+     the session should have been torn down.
+     */
+    
+    NSURLConnection* connection = [NSURLConnection
+                                   connectionWithRequest:req
+                                   delegate:self];
     
     self.progressController.status = url;
-    [self.progressController appendLog:[NSString stringWithFormat:@"→ %@", url]];
+    [self.progressController appendLog:[NSString
+                                        stringWithFormat:@"→ %@", url]];
     
     return connection;
 }
 
 #pragma mark - NSURLConnectionDelegate protocol
 
-// default implementations for connection delegate callback methods. they just log their
-// call to the progress controller and (if needed, set the "working" property.
+// default implementations for connection delegate callback methods.
+// they just log their call to the progress controller and
+// (if needed) set the "working" property.
 
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+-(void)connection:(NSURLConnection *)connection
+didReceiveResponse:(NSURLResponse *)response
 {
     if (!self.progressController.working) { return; }
     self.progressController.status = @"Response received";
@@ -81,7 +95,8 @@
 }
 
 
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+-(void)connection:(NSURLConnection *)connection
+   didReceiveData:(NSData *)data
 {
     if (!self.progressController.working) { return; }
     self.progressController.status = @"Data received";
@@ -92,24 +107,36 @@
 {
     if (!self.progressController.working) { return; }
     self.progressController.status = @"Finished loading";
-    [self.progressController appendLog:@"Finished loading" success:YES];
+    [self.progressController appendLog:@"Finished loading"
+                               success:YES];
     self.progressController.working = NO;
 }
 
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+-(void)connection:(NSURLConnection *)connection
+ didFailWithError:(NSError *)error
 {
     if (!self.progressController.working) { return; }
     self.progressController.status = @"ERROR !";
     NSLog(@"%@", error.description);
-    if ([error.domain isEqualToString:NSURLErrorDomain] && error.code == -1009)
+    if ([error.domain isEqualToString:NSURLErrorDomain]
+        && error.code == NSURLErrorNotConnectedToInternet)
     {
-        [self.progressController appendLog:@"No Network Connection." success:NO];
-    } else {
-        [self.progressController appendLog:error.localizedDescription success:NO];
+        [self.progressController appendLog:@"No Network Connection."
+                                   success:NO];
     }
-    
+    else if ([error.domain isEqualToString:NSURLErrorDomain]
+             && error.code == NSURLErrorServerCertificateUntrusted)
+    {
+        [self.progressController appendLog:@"Untrusted Certificate."
+                                   success:NO];
+        
+    }
+    else
+    {
+        [self.progressController appendLog:error.localizedDescription
+                                   success:NO];
+    }
     self.progressController.working = NO;
 }
-
 
 @end

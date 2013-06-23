@@ -31,7 +31,8 @@
 
 - (BOOL) supportedProtectionSpace:(NSURLAuthenticationChallenge*)challenge
 {
-    if (![challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+    if (![challenge.protectionSpace.authenticationMethod
+          isEqualToString:NSURLAuthenticationMethodServerTrust])
     {
         [self.progressController appendLog:[NSString stringWithFormat:@"%@ not supported. Aborting.",
                                             challenge.protectionSpace]];

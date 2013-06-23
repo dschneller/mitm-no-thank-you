@@ -15,7 +15,8 @@
 
 #pragma mark - SSL related NSURLConnectionDelegate methods
 
--(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+-(void)connection:(NSURLConnection *)connection
+willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     [super connection:connection willSendRequestForAuthenticationChallenge:challenge];
     if (!self.progressController.working) { return; }
@@ -24,8 +25,5 @@
     [self.progressController appendLog:@"Default auth handling"];
     [challenge.sender performDefaultHandlingForAuthenticationChallenge:challenge];
 }
-
-
-
 
 @end
