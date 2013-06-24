@@ -9,11 +9,12 @@
 #import "CDFingerprintViewController.h"
 #import <CommonCrypto/CommonDigest.h>
 
-@interface CDFingerprintViewController () <NSURLConnectionDataDelegate>
+@interface CDFingerprintViewController()
 
 @property (nonatomic, strong) NSSet* acceptableFingerprints;
 
 @end
+
 
 @implementation CDFingerprintViewController
 

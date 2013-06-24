@@ -8,7 +8,7 @@
 
 #import "CDSSLBaseViewController.h"
 
-@interface CDSSLBaseViewController () <NSURLConnectionDataDelegate>
+@interface CDSSLBaseViewController()
 
 @property (nonatomic, readwrite) BOOL gotReusedTLSSession;
 

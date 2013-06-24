@@ -8,9 +8,6 @@
 
 #import "CDStandardSSLViewController.h"
 
-@interface CDStandardSSLViewController () <NSURLConnectionDelegate>
-@end
-
 @implementation CDStandardSSLViewController
 
 #pragma mark - SSL related NSURLConnectionDelegate methods
