@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
                 <tabBarController restorationIdentifier="mainTabBarController" id="4" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -34,6 +37,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ew9-MV-w2S">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="ZRx-GB-0bn" kind="embed" identifier="embedProgress" id="gY9-3m-22D"/>
@@ -48,6 +52,7 @@
                             <constraint firstAttribute="centerX" secondItem="ew9-MV-w2S" secondAttribute="centerX" type="user" id="oMH-kD-fzP"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Unencrypted" id="SIN-B5-1ct">
                         <barButtonItem key="rightBarButtonItem" title="Start" id="hiC-fB-FfX">
                             <connections>
@@ -69,6 +74,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mA-c4-cbk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="ZRx-GB-0bn" kind="embed" identifier="embedProgress" id="nvU-ok-0EO"/>
@@ -83,6 +89,7 @@
                             <constraint firstAttribute="centerX" secondItem="2mA-c4-cbk" secondAttribute="centerX" type="user" id="WDP-OR-T6t"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Standard SSL" id="oFw-mi-1cw">
                         <barButtonItem key="rightBarButtonItem" title="Start" id="pPo-yM-a2a">
@@ -105,6 +112,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJA-eQ-K7S">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="ZRx-GB-0bn" kind="embed" identifier="embedProgress" id="8Ou-tO-Fwp"/>
@@ -119,6 +127,7 @@
                             <constraint firstItem="jJA-eQ-K7S" firstAttribute="top" secondItem="Ug0-xY-GuK" secondAttribute="top" type="default" id="aGM-mV-rkx"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Reference Cert" id="BbK-lg-ggj">
                         <barButtonItem key="rightBarButtonItem" title="Start" id="cQ6-HM-jCr">
                             <connections>
@@ -140,6 +149,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzm-Bc-ycY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="ZRx-GB-0bn" kind="embed" identifier="embedProgress" id="LOM-Ld-pQl"/>
@@ -154,6 +164,7 @@
                             <constraint firstAttribute="centerX" secondItem="tzm-Bc-ycY" secondAttribute="centerX" type="user" id="u2f-bE-g1A"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Fingerprint" id="KxO-kM-U7u">
                         <barButtonItem key="rightBarButtonItem" title="Start" id="f1u-LG-qRQ">
                             <connections>
@@ -175,17 +186,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="21" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FZN-Hg-TGW">
+                                <rect key="frame" x="0.0" y="30" width="320" height="425"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.8703067753" green="0.90183711450000004" blue="0.962890625" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logHistoryCell" rowHeight="21" id="yFs-CM-KYE" customClass="CDLogHistoryTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logHistoryCell" rowHeight="21" id="yFs-CM-KYE" userLabel="CELL" customClass="CDLogHistoryTableViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5he-ON-T5x">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5he-ON-T5x" userLabel="LINENO">
+                                                    <rect key="frame" x="12" y="0.0" width="29" height="21"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="29" id="vnf-zz-7NJ"/>
@@ -194,7 +207,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwy-Gh-8hg">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwy-Gh-8hg" userLabel="ENTRY">
+                                                    <rect key="frame" x="49" y="0.0" width="259" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,28 +236,31 @@
                                     <outlet property="delegate" destination="ZRx-GB-0bn" id="0wG-hO-Vta"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywd-hM-eC1" userLabel="TopContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywd-hM-eC1" userLabel="TOPCONT">
+                                <rect key="frame" x="-8" y="0.0" width="336" height="29"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ready" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-GL-f2d" userLabel="TOPLABEL">
+                                        <rect key="frame" x="20" y="0.0" width="267" height="29"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WLU-C5-WuT">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WLU-C5-WuT" userLabel="SPINNER">
+                                        <rect key="frame" x="295" y="5" width="21" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="21" id="DC8-t8-jZU"/>
+                                            <constraint firstAttribute="width" constant="21" id="BgW-PA-KwW"/>
                                         </constraints>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.87030677529556277" green="0.90183711448260384" blue="0.962890625" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="WLU-C5-WuT" secondAttribute="centerY" type="user" id="3uG-ej-1E6"/>
                                     <constraint firstItem="WLU-C5-WuT" firstAttribute="leading" secondItem="LRe-GL-f2d" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="NS2-j7-oUW"/>
                                     <constraint firstAttribute="height" constant="29" type="user" id="Rhe-9E-IQ4"/>
-                                    <constraint firstAttribute="bottom" secondItem="WLU-C5-WuT" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cpV-KI-RK2"/>
                                     <constraint firstAttribute="centerY" secondItem="LRe-GL-f2d" secondAttribute="centerY" type="user" id="fcj-If-98t"/>
                                     <constraint firstItem="LRe-GL-f2d" firstAttribute="top" secondItem="Ywd-hM-eC1" secondAttribute="top" type="user" id="it5-6K-jrS"/>
-                                    <constraint firstItem="LRe-GL-f2d" firstAttribute="leading" secondItem="Ywd-hM-eC1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="z3S-dH-0WX"/>
-                                    <constraint firstAttribute="trailing" secondItem="WLU-C5-WuT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zpl-8x-NWg"/>
+                                    <constraint firstItem="LRe-GL-f2d" firstAttribute="leading" secondItem="Ywd-hM-eC1" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="z3S-dH-0WX"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLU-C5-WuT" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="zpl-8x-NWg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -258,6 +275,7 @@
                             <constraint firstItem="FZN-Hg-TGW" firstAttribute="top" secondItem="Ywd-hM-eC1" secondAttribute="bottom" constant="1" type="user" id="mrc-uW-VeS"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="activity" destination="WLU-C5-WuT" id="sEb-Cc-udG"/>
                         <outlet property="statusLabel" destination="LRe-GL-f2d" id="fUr-f5-Pk5"/>
@@ -272,6 +290,7 @@
         <scene sceneID="Mfn-h7-ANl">
             <objects>
                 <navigationController id="joU-gJ-zWK" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Unencrypted" image="pad_open.png" id="0TH-sR-Abt"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cwA-I6-URh">
@@ -291,6 +310,7 @@
         <scene sceneID="8Fz-Fz-hxw">
             <objects>
                 <navigationController id="pDE-S7-pPe" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Standard" image="pad_closed.png" id="kVh-wo-HyS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RYH-4l-acY">
@@ -310,6 +330,7 @@
         <scene sceneID="Q98-Fs-vGe">
             <objects>
                 <navigationController id="Nsb-xG-CVP" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Reference" image="pad_ref.png" id="dQN-Rx-gK9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aCp-fI-Kn1">
@@ -329,6 +350,7 @@
         <scene sceneID="ei6-kh-x30">
             <objects>
                 <navigationController id="4hN-Fr-DA4" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Fingerprint" image="pad_fp.png" id="Xrb-Xg-LhZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dgc-vb-jyr">
@@ -351,6 +373,50 @@
         <image name="pad_open.png" width="26" height="37"/>
         <image name="pad_ref.png" width="26" height="37"/>
     </resources>
+    <classes>
+        <class className="CDBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDBaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="connect:"/>
+            </relationships>
+        </class>
+        <class className="CDFingerprintViewController" superclassName="CDSSLBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDFingerprintViewController.h"/>
+        </class>
+        <class className="CDLogHistoryTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDLogHistoryTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="lineNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="statusEntryLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CDProgressDisplayController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDProgressDisplayController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activity" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="CDReferenceCertViewController" superclassName="CDSSLBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDReferenceCertViewController.h"/>
+        </class>
+        <class className="CDSSLBaseViewController" superclassName="CDBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDSSLBaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="connect:"/>
+            </relationships>
+        </class>
+        <class className="CDStandardSSLViewController" superclassName="CDSSLBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDStandardSSLViewController.h"/>
+        </class>
+        <class className="CDUnencryptedViewController" superclassName="CDBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CDUnencryptedViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
