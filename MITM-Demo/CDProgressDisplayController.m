@@ -105,6 +105,9 @@ UITableViewDelegate>
 {
     NSString* logline = self.logLines[indexPath.row];
     NSString* title = [NSString stringWithFormat:@"Log entry %d", indexPath.row +1];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
     [[[UIAlertView alloc]
       initWithTitle:title
       message:logline
