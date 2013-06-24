@@ -99,6 +99,7 @@ static NSString* const kFP2 = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 00 
                            queue:(dispatch_queue_t)queue
                       completion:(void(^)(BOOL matched))completion
 {
+    // SecTrustEvalute can block, so run in an async block
     void(^asyncBlock)() = ^{
         // prepare return value w/ defensive default
         BOOL fpMatched = NO;
@@ -197,6 +198,7 @@ static NSString* const kFP2 = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 00 
         
     };
     
+    // execute the block defined above async
     dispatch_async(dispatch_get_global_queue                   (DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), asyncBlock);
 }
 

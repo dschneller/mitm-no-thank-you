@@ -12,7 +12,7 @@
 
 /*!
  List of known reference certificates.
- Cached after first load. 
+ Cached after first load.
  */
 @property (nonatomic, readonly) NSArray* referenceCerts;
 
@@ -51,9 +51,7 @@
     [super connection:connection willSendRequestForAuthenticationChallenge:challenge];
     if (!self.progressController.working) { return; }
     if (![super supportedProtectionSpace:challenge]) { return; }
-
-    [self.progressController appendLog:@"Comparing certs."];
-
+    
     SecTrustRef rcvdServerTrust = challenge.protectionSpace.serverTrust;
     if ([self matchesKnownCertificates:rcvdServerTrust]) {
         // certificate matched a known reference cert.
@@ -91,19 +89,15 @@
     // actual evaluation result
     if (status == errSecSuccess)
     {
-        // only in these 2 cases the certificate could be
-        // definitely verified. now we still need to double check
-        // the received certificates by comparing them to the
-        // reference certificates. That way we make sure we are
-        // talking to the correct server, and not merely have an
-        // encrypted channel.
-        
-        // otherwise someone could attempt a man-in-the-middle
-        // attack using a certificate that was correctly signed by
-        // any of the many Root-CAs the system trusts by default.
-        if (evaluationResult == kSecTrustResultUnspecified
-            || evaluationResult == kSecTrustResultProceed)
+        BOOL chainOfTrustOK = (evaluationResult == kSecTrustResultUnspecified);
+        [self.progressController appendLog:
+         [NSString stringWithFormat:@"Chain of trust %@",
+          chainOfTrustOK ? @"OK" : @"broken"]
+                                   success:chainOfTrustOK];
+        if (chainOfTrustOK)
         {
+            [self.progressController appendLog:@"Comparing certs."];
+            
             NSUInteger referenceCertCount = [self.referenceCerts count];
             for (NSUInteger i = 0; i<referenceCertCount
                  && !certificateVerified; i++)
@@ -121,14 +115,14 @@
                 
                 [self.progressController appendLog:[NSString stringWithFormat:@"Ref cert #%d: %@", i, certificateVerified ? @"match" : @"no match"] success:certificateVerified];
             }
+            [self.progressController appendLog:(certificateVerified ? @"Found matching reference" : @"No matching reference")
+                                       success:certificateVerified];
         }
-        [self.progressController appendLog:(certificateVerified ? @"Found matching reference" : @"No matching reference")
-                                   success:certificateVerified];
     } else {
         [self.progressController appendLog:@"SecTrustEvaluate failed."
                                    success:NO];
     }
-
+    
     return certificateVerified;
 }
 

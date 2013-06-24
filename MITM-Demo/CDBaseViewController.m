@@ -127,7 +127,14 @@ didReceiveResponse:(NSURLResponse *)response
     else if ([error.domain isEqualToString:NSURLErrorDomain]
              && error.code == NSURLErrorServerCertificateUntrusted)
     {
-        [self.progressController appendLog:@"Untrusted Certificate."
+        [self.progressController appendLog:@"Chain of trust broken."
+                                   success:NO];
+        
+    }
+    else if ([error.domain isEqualToString:NSURLErrorDomain]
+             && error.code == NSURLErrorUserCancelledAuthentication)
+    {
+        [self.progressController appendLog:@"Cancelled programmatically."
                                    success:NO];
         
     }
