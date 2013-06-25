@@ -32,6 +32,8 @@
 		41DEFC2A1760B81A001781EA /* CDSSLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */; };
 		41DEFC2D1760C059001781EA /* CDReferenceCertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */; };
 		41DEFC2F1760D28B001781EA /* star.centerdevice.de.der in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */; };
+		9B7CC67F177A62970067F5C7 /* Icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7CC67D177A62970067F5C7 /* Icon57.png */; };
+		9B7CC680177A62970067F5C7 /* Icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7CC67E177A62970067F5C7 /* Icon114.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		41DEFC2B1760C059001781EA /* CDReferenceCertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDReferenceCertViewController.h; sourceTree = "<group>"; };
 		41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDReferenceCertViewController.m; sourceTree = "<group>"; };
 		41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.centerdevice.de.der; sourceTree = "<group>"; };
+		9B7CC67D177A62970067F5C7 /* Icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon57.png; sourceTree = SOURCE_ROOT; };
+		9B7CC67E177A62970067F5C7 /* Icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon114.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,8 @@
 		41DEFBDE175F9271001781EA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B7CC67D177A62970067F5C7 /* Icon57.png */,
+				9B7CC67E177A62970067F5C7 /* Icon114.png */,
 				41DEFC13175F9AA9001781EA /* pad_fp.png */,
 				41DEFC0D175F9A15001781EA /* pad_closed.png */,
 				419D25371760D84700F9CA7B /* pad_ref.png */,
@@ -275,6 +281,8 @@
 				41DEFC271760A373001781EA /* www.centerdevice.de.der in Resources */,
 				41DEFC2F1760D28B001781EA /* star.centerdevice.de.der in Resources */,
 				419D25381760D84700F9CA7B /* pad_ref.png in Resources */,
+				9B7CC67F177A62970067F5C7 /* Icon57.png in Resources */,
+				9B7CC680177A62970067F5C7 /* Icon114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
