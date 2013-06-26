@@ -109,8 +109,8 @@
                      && !certificateVerified; j++)
                 {
                     SecCertificateRef currentCert = SecTrustGetCertificateAtIndex(presentedTrustInformation, j);
-                    CFDataRef certData = SecCertificateCopyData(currentCert);
-                    certificateVerified = [referenceCert isEqualToData:CFBridgingRelease(certData)];
+                    NSData* certData = CFBridgingRelease(SecCertificateCopyData(currentCert));
+                    certificateVerified = [referenceCert isEqualToData:certData];
                 }
                 
                 [self.progressController appendLog:[NSString stringWithFormat:@"Ref cert #%d: %@", i, certificateVerified ? @"match" : @"no match"] success:certificateVerified];
