@@ -28,12 +28,12 @@
 		41DEFC1E176086A4001781EA /* CDProgressDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC1D176086A4001781EA /* CDProgressDisplayController.m */; };
 		41DEFC2117608BF9001781EA /* CDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC2017608BF9001781EA /* CDBaseViewController.m */; };
 		41DEFC251760A252001781EA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DEFC241760A252001781EA /* Security.framework */; };
-		41DEFC271760A373001781EA /* www.centerdevice.de.der in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC261760A373001781EA /* www.centerdevice.de.der */; };
 		41DEFC2A1760B81A001781EA /* CDSSLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */; };
 		41DEFC2D1760C059001781EA /* CDReferenceCertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */; };
-		41DEFC2F1760D28B001781EA /* star.centerdevice.de.der in Resources */ = {isa = PBXBuildFile; fileRef = 41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */; };
 		9B7CC67F177A62970067F5C7 /* Icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7CC67D177A62970067F5C7 /* Icon57.png */; };
 		9B7CC680177A62970067F5C7 /* Icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7CC67E177A62970067F5C7 /* Icon114.png */; };
+		9B7CC683177C2F2D0067F5C7 /* www.google.de.der in Resources */ = {isa = PBXBuildFile; fileRef = 9B7CC681177C2F2D0067F5C7 /* www.google.de.der */; };
+		9B7CC684177C2F2D0067F5C7 /* www.google.com.der in Resources */ = {isa = PBXBuildFile; fileRef = 9B7CC682177C2F2D0067F5C7 /* www.google.com.der */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,14 +68,14 @@
 		41DEFC1F17608BF9001781EA /* CDBaseViewController.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = CDBaseViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
 		41DEFC2017608BF9001781EA /* CDBaseViewController.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = CDBaseViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
 		41DEFC241760A252001781EA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		41DEFC261760A373001781EA /* www.centerdevice.de.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.centerdevice.de.der; sourceTree = "<group>"; };
 		41DEFC281760B81A001781EA /* CDSSLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = CDSSLBaseViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
 		41DEFC291760B81A001781EA /* CDSSLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = CDSSLBaseViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
 		41DEFC2B1760C059001781EA /* CDReferenceCertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDReferenceCertViewController.h; sourceTree = "<group>"; };
 		41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDReferenceCertViewController.m; sourceTree = "<group>"; };
-		41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = star.centerdevice.de.der; sourceTree = "<group>"; };
 		9B7CC67D177A62970067F5C7 /* Icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon57.png; sourceTree = SOURCE_ROOT; };
 		9B7CC67E177A62970067F5C7 /* Icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon114.png; sourceTree = SOURCE_ROOT; };
+		9B7CC681177C2F2D0067F5C7 /* www.google.de.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.google.de.der; sourceTree = "<group>"; };
+		9B7CC682177C2F2D0067F5C7 /* www.google.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.google.com.der; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +141,8 @@
 			children = (
 				41DEFC2B1760C059001781EA /* CDReferenceCertViewController.h */,
 				41DEFC2C1760C059001781EA /* CDReferenceCertViewController.m */,
-				41DEFC261760A373001781EA /* www.centerdevice.de.der */,
-				41DEFC2E1760D28A001781EA /* star.centerdevice.de.der */,
+				9B7CC681177C2F2D0067F5C7 /* www.google.de.der */,
+				9B7CC682177C2F2D0067F5C7 /* www.google.com.der */,
 			);
 			name = "Reference Certificate Check";
 			sourceTree = "<group>";
@@ -278,11 +278,11 @@
 				41DEFC10175F9A15001781EA /* pad_closed.png in Resources */,
 				41DEFC12175F9A15001781EA /* pad_open.png in Resources */,
 				41DEFC14175F9AA9001781EA /* pad_fp.png in Resources */,
-				41DEFC271760A373001781EA /* www.centerdevice.de.der in Resources */,
-				41DEFC2F1760D28B001781EA /* star.centerdevice.de.der in Resources */,
 				419D25381760D84700F9CA7B /* pad_ref.png in Resources */,
 				9B7CC67F177A62970067F5C7 /* Icon57.png in Resources */,
 				9B7CC680177A62970067F5C7 /* Icon114.png in Resources */,
+				9B7CC683177C2F2D0067F5C7 /* www.google.de.der in Resources */,
+				9B7CC684177C2F2D0067F5C7 /* www.google.com.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

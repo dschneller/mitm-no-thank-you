@@ -27,8 +27,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Load reference certificate from our main bundle
-        NSArray* certificateFiles = @[@"star.centerdevice.de",
-                                      @"www.centerdevice.de"];
+        NSArray* certificateFiles = @[@"www.google.de",
+                                      @"www.google.com"];
         NSBundle* mainBundle = [NSBundle mainBundle];
         NSMutableArray* certDatas = [NSMutableArray array];
         for (NSUInteger i = 0; i<certificateFiles.count; i++)

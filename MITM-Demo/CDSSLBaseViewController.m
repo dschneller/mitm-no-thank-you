@@ -39,7 +39,7 @@
      */
     static BOOL withDot = YES;
     withDot = !withDot;
-    return withDot ? @"https://api.centerdevice.de." : @"https://api.centerdevice.de";
+    return withDot ? @"https://www.google.de." : @"https://www.google.de";
 }
 
 -(void)connect:(id)sender

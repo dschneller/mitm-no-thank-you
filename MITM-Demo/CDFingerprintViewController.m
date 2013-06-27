@@ -19,8 +19,8 @@
 @implementation CDFingerprintViewController
 
 // definition of well-known certificate fingerprints
-static NSString* const kFP1 = @"CC 20 5C 47 7C 54 0A 89 E8 C6 26 BF DA 57 87 13 8E 20 BE A7";
-static NSString* const kFP2 = @"74 BE E6 47 61 81 33 95 28 7A 46 BB 9E 87 EC 00 36 BC 9B 94";
+static NSString* const kFP1 = @"86 A9 1E B7 77 12 23 E3 D3 26 51 5B DD F6 BA FA FD 79 82 FE"; // google.de
+static NSString* const kFP2 = @"87 51 AD A8 AB 6F 36 54 CD A3 39 62 1B 5A FA 2A 9F 3F 0E 6D"; // google.com
 
 - (NSSet *)acceptableFingerprints
 {
